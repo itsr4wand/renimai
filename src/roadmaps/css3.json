@@ -1,0 +1,9 @@
+{
+  "icon": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'%3E%3Cpath d='m20 4l-2 14.5l-6 2l-6-2L4 4z'/%3E%3Cpath d='M8.5 8h7L11 12h4l-.5 3.5l-2.5.75l-2.5-.75l-.1-.5'/%3E%3C/g%3E%3C/svg%3E",
+  "title": "CSS3",
+  "name": "CSS3",
+  "description": "The Best way to learn CSS3 in 2024",
+  "roadmapURL": "css3",
+  "type": "recommed",
+  "body": "../roadmaps/css3.svg"
+}
