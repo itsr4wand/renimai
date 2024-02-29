@@ -1,4 +1,11 @@
 {
-  "renimai": "Renimai",
-  "soon": "Kommt bald..."
+  "name": "Renimai",
+  "soon": "Kommt bald...",
+  "home": {
+    "hero": {
+      "title": "Lerne <u>Programmieren</u><br\/>einfach mit Renimai!",
+      "description": "Entdecke unseren kostenlosen Lernplan und spare Zeit beim Suchen",
+      "btn": "Loslegen"
+    }
+  }
 }

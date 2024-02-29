@@ -4,23 +4,36 @@
 //
 
 // import json data
-import html5 from './html5.json';
-import html52 from './html5.json';
-import html51 from './html5.json';
-import css3 from './css3.json';
-import css31 from './css3.json';
-import css32 from './css3.json';
+const importRoadmapsData = async (language) => {
+  try {
+    // varible them
+    const [html5, css3] = await Promise.all([
+      import(`./${language}/html5.json`),
+      import(`./${language}/css3.json`)
+    ])
 
+    // read them
+    return {
+      html5: html5.default,
+      css3: css3.default
+    }
+  } catch (error) {
+    // if got any error
+    console.error('Error loading JSON data:', error)
+    return null
+  }
+}
 
-// varible them
-const roadmapsData = {
-  html5,
-  html51,
-  html52,
-  css31,
-  css32,
-  css3
-};
+// usag them
+const getRoadmapsData = async (language) => {
+  try {
+    const roadmapData = await importRoadmapsData(language)
+    return roadmapData
+  } catch (error) {
+    // if got any error
+    console.error('Error loading JSON data:', error)
+    return null
+  }
+}
 
-// combine json data
-export default roadmapsData;
+export default getRoadmapsData

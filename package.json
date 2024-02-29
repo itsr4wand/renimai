@@ -17,11 +17,11 @@
     "react-cookie": "^7.1.0",
     "react-dom": "^18.2.0",
     "react-github-btn": "^1.4.0",
+    "react-lorem-ipsum": "^1.4.10",
     "react-markdown": "^9.0.1",
     "react-router-dom": "^6.22.1",
     "rehype-highlight": "^7.0.0",
-    "remark-gfm": "^4.0.0",
-    "scrollreveal": "^4.0.9"
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

@@ -9,6 +9,7 @@ import { CookiesProvider, useCookies } from 'react-cookie'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './screens/Home.jsx'
+import Roadmaps from './screens/Roadmaps.jsx'
 import Roadmap from './screens/Roadmap.jsx'
 import NotFound from './screens/NotFound.jsx'
 
@@ -34,7 +35,8 @@ function App() {
           <NavBar />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/roadmaps/:roadmapURL' element={<Roadmap />} />
+            <Route path='roadmaps' element={<Roadmaps />} />
+            <Route path='roadmaps/:url' element={<Roadmap />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
           <Footer />

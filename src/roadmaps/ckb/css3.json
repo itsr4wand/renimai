@@ -3,7 +3,7 @@
   "title": "CSS3",
   "name": "CSS3",
   "description": "The Best way to learn CSS3 in 2024",
-  "roadmapURL": "css3",
+  "url": "css3",
   "type": "recommed",
   "body": "../roadmaps/css3.svg"
 }

@@ -1,4 +1,11 @@
 {
-  "renimai": "Renimai",
-  "soon": "Coming soon..."
+  "name": "Renimai",
+  "soon": "Coming soon...",
+  "home": {
+    "hero": {
+      "title": "Learn <u>Programming<\/u><br\/>easy with Renimai!",
+      "description": "Explore our free learning roadmap and save your time searching",
+      "btn": "Get Started"
+    }
+  }
 }
