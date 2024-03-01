@@ -3,18 +3,23 @@
 //* (c) 2024
 //
 
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import NotFound from './NotFound.jsx'
 import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
+import en from '../language/en.json'
+import de from '../language/de.json'
+import ckb from '../language/ckb.json'
 import getJsonData from '../roadmaps'
 import 'ldrs/squircle'
-import NotFound from './NotFound.jsx'
 
 function Roadmap() {
   const [cookies] = useCookies(['language'])
   const defaultLanguage = cookies.language || 'en'
-  const [language] = useState(defaultLanguage)
+  // set language
+  const language = defaultLanguage
+  const languageStrings = { en, de, ckb } // language codes
   const [jsonData, setJsonData] = useState(null)
 
   // Read the roadmaps
@@ -45,7 +50,11 @@ function Roadmap() {
         <>
           <div className="max-w-4xl mx-auto px-2 lg:px-0 pt-6 pb-12 flex flex-col items-center justify-center border-b-[1px] border-[#d4d4d8]">
             <div className="min-w-full mb-6 md:mb-3">
-            <Link to='/roadmaps' className="max-w-52 px-2 py-1 flex items-center justify-center gap-1 bg-[#202020] hover:bg-[#171717] text-white border-[1px] border-[#d4d4d8] rounded-md shadow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" /></svg> Back to all Roadmaps</Link>
+              <Link to='/roadmaps' className="max-w-fit p-2 flex items-center justify-center gap-1 bg-[#202020] hover:bg-[#171717] text-white border-[1px] border-[#d4d4d8] rounded-md shadow">
+                {language === 'ckb' ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" /></svg> :
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" /></svg>}
+                {languageStrings[language].roadmaps.backtoall}
+              </Link>
             </div>
             <div className='p-2 bg-gray-100 mb-2 rounded-lg'>
               <img src={roadmapData.icon} className='w-16 h-16' alt={roadmapData.title} />

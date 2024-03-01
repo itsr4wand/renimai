@@ -1,11 +1,54 @@
 {
   "name": "Renimai",
+  "description": "Renimai ist eine Website, die darauf ausgelegt ist, Anfängern das Programmieren optimal beizubringen.",
   "soon": "Kommt bald...",
+  "roadmaps": {
+    "addroadmap": "Weitere Roadmap hinzufügen",
+    "backtoall": "Zurück zu allen Roadmaps",
+    "hero": {
+      "title": "Roadmaps",
+      "text": "Schritt-für-Schritt-Anleitungen und Pfade zum Erlernen verschiedener Tools oder Technologien"
+    }
+  },
   "home": {
     "hero": {
       "title": "Lerne <u>Programmieren</u><br\/>einfach mit Renimai!",
       "description": "Entdecke unseren kostenlosen Lernplan und spare Zeit beim Suchen",
       "btn": "Loslegen"
+    },
+    "section1": {
+      "title": "Beliebte Roadmaps",
+      "description": "Die am häufigsten verwendeten Roadmaps auf Renimai",
+      "btn": "Weitere Roadmaps"
+    },
+    "section2": {
+      "title": "Bei Entwicklern beliebt",
+      "description": "Viele Leute haben aufgrund unserer einfachen Roadmaps mit dem Programmieren begonnen😊"
+    },
+    "subfooter": {
+      "title": "Testen Sie Renimai kostenlos",
+      "description": "Entdecken Sie unsere kostenlosen, einfachen und unkomplizierten Roadmaps",
+      "btn": "Loslegen"
     }
+  },
+  "footer": {
+    "nav": {
+      "home": "Startseite",
+      "roadmaps": "Roadmaps",
+      "about": "Über",
+      "contact": "Kontakt"
+    },
+    "subnav": {
+      "privacy": "Datenschutz",
+      "terms": "Bedingungen",
+      "faq": "FAQs"
+    },
+    "copyright": "Erstellt mit ❤ von"
+  },
+  "error404": {
+    "subtitle": "404 Fehler",
+    "title": "Ups!",
+    "text": "Wir können die von Ihnen gesuchte Seite nicht finden. Wir werden das bald beheben, aber vorerst können Sie zur Startseite zurückkehren",
+    "btn": "Bring mich zurück"
   }
 }

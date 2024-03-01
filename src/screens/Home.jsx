@@ -15,15 +15,8 @@ import { LoremIpsum, Avatar, fullname, username } from "react-lorem-ipsum"
 
 function Home() {
   const [roadmapData, setRoadmapsData] = useState(null)
-  const [cookies, setCookie] = useCookies(['language'])
+  const [cookies] = useCookies(['language'])
   const defaultLanguage = cookies.language || 'en'
-  // get user language
-  function getBrowserLanguageCode() {
-    const language = navigator.languages ? navigator.languages[0] : navigator.language
-    return language.slice(0, 2) // Extract first two characters
-
-    // ['de', 'en', 'ckb'].includes(getBrowserLanguageCode()) ? getBrowserLanguageCode() :
-  }
   // set user language
   const language = defaultLanguage
   const languageStrings = { en, de, ckb } // language codes
@@ -53,8 +46,8 @@ function Home() {
       <div className='bg-[#fafafa] min-h-80 py-20'>
         <div className='max-w-4xl mx-auto'>
           <div className='flex flex-col items-center'>
-            <h2 className='text-3xl md:text-4xl font-bold'>Popular Roadmaps</h2>
-            <p className='mt-1 text-[#646464]'>Most used Roadmaps on Renimai</p>
+            <h2 className='text-3xl md:text-4xl font-bold'>{languageStrings[language].home.section1.title}</h2>
+            <p className='mt-1 text-[#646464]'>{languageStrings[language].home.section1.description}</p>
           </div>
           {roadmapData ?
             <div className='px-3 mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3'>
@@ -81,17 +74,17 @@ function Home() {
                 color='black'
               ></l-squircle>
             </div>}
-          <Link to='/roadmaps' className='mt-6 m-auto hover:translate-y-[-1.5px] transition-transform bg-[#202020] hover:bg-[#171717] text-white max-w-48 px-5 py-2.5 gap-2 flex items-center justify-center rounded-md'>More Roadmaps <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-6 h-6'><path strokeLinecap='round' strokeLinejoin='round' d='M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941' /></svg></Link>
+          <Link to='/roadmaps' className='mt-6 m-auto hover:translate-y-[-1.5px] transition-transform bg-[#202020] hover:bg-[#171717] text-white max-w-48 px-5 py-2.5 gap-2 flex items-center justify-center rounded-md'>{languageStrings[language].home.section1.btn}</Link>
         </div>
       </div>
       <div className='min-h-80 px-3 lg:px-0 py-6 md:py-12 max-w-4xl mx-auto'>
         <div className='flex flex-col'>
-          <h2 className='text-3xl md:text-4xl font-bold'>Loved By Developers</h2>
-          <p className='mt-1 text-[#646464]'>Many people started coding because of our simple and easy roadmaps😊</p>
+          <h2 className='text-3xl md:text-4xl font-bold'>{languageStrings[language].home.section2.title}</h2>
+          <p className='mt-1 text-[#646464]'>{languageStrings[language].home.section2.description}</p>
         </div>
         <div className='mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
           {
-            Array.apply(null, { length: 9 }).map((e, i) => (
+            Array.apply(null, { length: 6 }).map((e, i) => (
               <div className='bg-[#f6f6f6] border-2 border-[#d4d4d8] rounded-md p-4 hover:translate-y-[-3px] transition-transform'>
                 <div className='flex items-center'>
                   <div className='flex gap-2'>
@@ -112,9 +105,13 @@ function Home() {
       <div className='bg-gradient-to-b from-[#fcfcfc] to-white py-20 border-t-[1px] border-[#d4d4d8]'>
         <div className='max-w-4xl mx-auto'>
           <div className='flex flex-col items-center'>
-            <h2 className='mt-2 text-3xl md:text-4xl font-extrabold text-balance'>Try Renimai For Free</h2>
-            <p className='text-[#646464] mt-2 mb-4 text-center'>Explore our free simple and easy roadmaps</p>
-            <Link to='/roadmaps' className='hover:translate-y-[-1.5px] transition-transform bg-[#202020] hover:bg-[#171717] text-white px-5 py-2.5 gap-2 flex items-center justify-center rounded-md'>Get Started <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-5 h-5'><path strokeLinecap='round' strokeLinejoin='round' d='m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25' /></svg> </Link>
+            <h2 className='mt-2 text-3xl md:text-4xl font-extrabold text-balance'>{languageStrings[language].home.subfooter.title}</h2>
+            <p className='text-[#646464] mt-2 mb-4 text-center'>{languageStrings[language].home.subfooter.description}</p>
+            <Link to='/roadmaps' className='hover:translate-y-[-1.5px] transition-transform bg-[#202020] hover:bg-[#171717] text-white px-5 py-2.5 gap-2 flex items-center justify-center rounded-md'>
+              {languageStrings[language].home.subfooter.btn}
+              {language === 'ckb' ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" /></svg> :
+                <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-5 h-5'><path strokeLinecap='round' strokeLinejoin='round' d='m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25' /></svg>}
+            </Link>
           </div>
         </div>
       </div>

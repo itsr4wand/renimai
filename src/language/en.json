@@ -1,11 +1,54 @@
 {
   "name": "Renimai",
+  "description": "Renimai is a website designed to teach beginners programming in the best way.",
   "soon": "Coming soon...",
+  "roadmaps": {
+    "addroadmap": "Add more Roadmap",
+    "backtoall": "Back to all Roadmaps",
+    "hero": {
+      "title": "Roadmaps",
+      "text": "Step by step guides and paths to learn different tools or technologies"
+    }
+  },
   "home": {
     "hero": {
       "title": "Learn <u>Programming<\/u><br\/>easy with Renimai!",
       "description": "Explore our free learning roadmap and save your time searching",
       "btn": "Get Started"
+    },
+    "section1": {
+      "title": "Popular Roadmaps",
+      "description": "Most used Roadmaps on Renimai",
+      "btn": "More Roadmaps"
+    },
+    "section2": {
+      "title": "Loved By Developers",
+      "description": "Many people started coding because of our simple and easy roadmaps😊"
+    },
+    "subfooter": {
+      "title": "Try Renimai For Free",
+      "description": "Explore our free simple and easy roadmaps",
+      "btn": "Get Started"
     }
+  },
+  "footer": {
+    "nav": {
+      "home": "Home",
+      "roadmaps": "Roadmaps",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "subnav": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "faq": "FAQs"
+    },
+    "copyright": "Made with ❤ by"
+  },
+  "error404": {
+    "subtitle": "404 Error",
+    "title": "Woops!",
+    "text": "We can't seem to find the page you are looking for, we'll fix that soon but for now you can return to the home page",
+    "btn": "Take me back"
   }
 }
