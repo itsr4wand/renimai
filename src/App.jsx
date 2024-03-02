@@ -5,7 +5,8 @@
 
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { CookiesProvider, useCookies } from 'react-cookie'
+import { HelmetProvider } from 'react-helmet-async'
+import { useCookies } from 'react-cookie'
 import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './screens/Home.jsx'
@@ -14,6 +15,7 @@ import Roadmap from './screens/Roadmap.jsx'
 import NotFound from './screens/NotFound.jsx'
 
 function App() {
+  const helmetContext = {};
   const [cookies] = useCookies(['language'])
   const defaultLanguage = cookies.language || 'en'
   const [language] = useState(defaultLanguage)
@@ -29,7 +31,7 @@ function App() {
   }
 
   return (
-    <CookiesProvider>
+    <HelmetProvider context={helmetContext}>
       <Router>
         <div dir={getDirection(language)}>
           <NavBar />
@@ -42,7 +44,7 @@ function App() {
           <Footer />
         </div>
       </Router>
-    </CookiesProvider>
+    </HelmetProvider>
   )
 }
 

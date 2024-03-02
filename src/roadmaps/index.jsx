@@ -6,21 +6,22 @@
 // import json data
 const importRoadmapsData = async (language) => {
   try {
-    // varible them
-    const [html5, css3] = await Promise.all([
+    const roadmaps = await Promise.all([
       import(`./${language}/html5.json`),
-      import(`./${language}/css3.json`)
-    ])
+      import(`./${language}/css3.json`),
+      import(`./${language}/javascript.json`),
+      import(`./${language}/flutter.json`)
+    ]).then(data => data.map(item => item.default));
 
-    // read them
     return {
-      html5: html5.default,
-      css3: css3.default
-    }
+      html5: roadmaps[0],
+      css3: roadmaps[1],
+      javascript: roadmaps[2],
+      flutter: roadmaps[3]
+    };
   } catch (error) {
-    // if got any error
-    console.error('Error loading JSON data:', error)
-    return null
+    console.error('Error loading JSON data:', error);
+    return null;
   }
 }
 

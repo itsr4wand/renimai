@@ -38,6 +38,7 @@ function Roadmaps() {
           {roadmapData ?
             <div className='mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3'>
               {Object.values(roadmapData)
+                .reverse()
                 .map((data, index) => (
                   // roadmaps section grid item
                   <Link to={`/roadmaps/${data.url}`} key={index} className='border-2 border-[#d4d4d8] bg-[#f6f6f6] min-w-24 min-h-32 rounded-md p-4 hover:translate-y-[-3px] transition-transform'>
