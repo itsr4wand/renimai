@@ -4,11 +4,10 @@
 //
 
 // Importing necessary modules
+import { useEffect, useState } from 'react'
 import NotFound from './NotFound.jsx'
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/MetaSEO.jsx'
-import React, { useEffect, useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 import en from '../language/en.json'
 import de from '../language/de.json'
@@ -27,6 +26,9 @@ export default function Roadmap() {
   const languageStrings = { en, de, ckb } // language codes
   const [jsonData, setJsonData] = useState(null)
 
+  // Get the roadmap url
+  const { url } = useParams() || {}
+
   // Read the roadmaps
   useEffect(() => {
     getJsonData(language).then((data) => {
@@ -38,8 +40,6 @@ export default function Roadmap() {
     return <>Loading...</>
   }
 
-  // Get the roadmap url
-  const { url } = useParams()
   const roadmapDataArray = Array.isArray(jsonData) ? jsonData : Object.values(jsonData)
   // Check url
   const roadmapData = roadmapDataArray.find((data) => data.url === url)

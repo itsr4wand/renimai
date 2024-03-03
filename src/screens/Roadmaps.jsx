@@ -4,7 +4,7 @@
 //
 
 // Importing necessary modules
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/MetaSEO.jsx'
 import { useCookies } from 'react-cookie'

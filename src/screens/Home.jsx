@@ -4,7 +4,7 @@
 //
 
 // Importing necessary modules
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/MetaSEO.jsx'
 import { useCookies } from 'react-cookie'
@@ -26,6 +26,8 @@ export default function Home() {
   // Defining the language strings
   const languageStrings = { en, de, ckb } // language codes
 
+  const pageTitle = { __html: languageStrings[language].home.hero.title } // disable XSS
+
   // read the roadmaps
   useEffect(() => {
     getRoadmapsData(language).then((data) => {
@@ -40,7 +42,7 @@ export default function Home() {
         description='Renimai is a website designed to teach beginners programming in the best way.' />
       <div className='pt-6 bg-gradient-to-b from-[#fcfcfc] to-white'>
         <div className='px-2 py-12 min-h-72 text-center flex flex-col items-center justify-center'>
-          <h1 className='text-4xl md:text-5xl font-extrabold' dangerouslySetInnerHTML={{ __html: languageStrings[language].home.hero.title }}></h1>
+          <h1 className='text-4xl md:text-5xl font-extrabold' dangerouslySetInnerHTML={pageTitle}></h1>
           <p className='max-w-md mx-auto text-[#646464] mt-2 mb-4'>{languageStrings[language].home.hero.description}</p>
           <Link to='/roadmaps' className='hover:translate-y-[-1.5px] transition-transform bg-[#202020] hover:bg-[#171717] text-white px-5 py-2.5 gap-2 flex items-center justify-center rounded-md'>{languageStrings[language].home.hero.btn}
             {language === 'ckb' ? <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-5 h-5'><path strokeLinecap='round' strokeLinejoin='round' d='m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25' /></svg> :
@@ -92,8 +94,8 @@ export default function Home() {
         </div>
         <div className='mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
           {
-            Array.apply(null, { length: 6 }).map((e, i) => (
-              <div className='bg-[#f6f6f6] border-2 border-[#d4d4d8] rounded-md p-4 hover:translate-y-[-3px] transition-transform'>
+            Array.apply(null, { length: 6 }).map((_, index) => (
+              <div key={index} className='bg-[#f6f6f6] border-2 border-[#d4d4d8] rounded-md p-4 hover:translate-y-[-3px] transition-transform'>
                 <div className='flex items-center'>
                   <div className='flex gap-2'>
                     <Avatar gender='female' className='h-12 w-12 rounded-md' />

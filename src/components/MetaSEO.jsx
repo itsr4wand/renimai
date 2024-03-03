@@ -7,9 +7,9 @@
 //
 
 // Importing necessary modules
-import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import Thumb from '../assets/imgs/thumb.png'
+import PropTypes from 'prop-types';
 
 // Defining the App component
 export default function SEO({ title, description }) {
@@ -32,4 +32,10 @@ export default function SEO({ title, description }) {
       <meta property='twitter:image' content={Thumb} />
     </Helmet>
   )
+}
+
+// Prop types validation
+SEO.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
 }

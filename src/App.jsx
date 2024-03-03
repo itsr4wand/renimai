@@ -4,7 +4,7 @@
 //
 
 // Importing necessary modules
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { useCookies } from 'react-cookie'

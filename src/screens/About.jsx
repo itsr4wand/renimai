@@ -20,7 +20,7 @@ export default function NotFoundScreen() {
           <img src={Me} alt="itsr4wand" className='h-24 w-24' title="itsr4wand" />
           <div className="flex flex-col">
             <h1 className="text-2xl md:text-3xl font-bold">HI👋, iam Rawand</h1>
-            <p className="text-[#646464] text-sm">I made roadmap.sh to help developers learn and grow better.</p>
+            <p className="text-[#646464] text-sm">I made Renimai to help developers learn and grow better.</p>
           </div>
         </div>
         soon...
