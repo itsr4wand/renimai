@@ -3,6 +3,7 @@
 //* (c) 2024
 //
 
+// Importing necessary modules
 import Logo from '../assets/imgs/logo.jpeg'
 import { Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
@@ -10,13 +11,17 @@ import en from '../language/en.json'
 import de from '../language/de.json'
 import ckb from '../language/ckb.json'
 
-function Footer() {
+// Defining the App component
+export default function Footer() {
+  // Using cookies to get the language preference
   const [cookies] = useCookies(['language'])
   const defaultLanguage = cookies.language || 'en'
-  // set user language
+  // Setting the language to the user's preference
   const language = defaultLanguage
+  // Defining the language strings
   const languageStrings = { en, de, ckb } // language codes
 
+  // Rendering the component
   return (
     <>
       <div className='bg-gradient-to-b from-white to-[#fcfcfc] py-8 lg:py-10 px-4 lg:px-0 border-t-[1px] border-[#d4d4d8]'>
@@ -40,18 +45,12 @@ function Footer() {
                 <Link className='hover:underline' to='/privacy'>{languageStrings[language].footer.subnav.privacy}</Link>
                 <span>‧</span>
                 <Link className='hover:underline' to='/terms'>{languageStrings[language].footer.subnav.terms}</Link>
-                <span>‧</span>
-                <Link className='hover:underline' to='/faq'>{languageStrings[language].footer.subnav.faq}</Link>
               </ul>
             </div>
           </div>
-          <p className="flex items-center justify-center mt-10 min-w-full text-[#646464] text-sm">{languageStrings[language].footer.copyright}<a href="http://x.com/itsr4wand" className='ltr:ml-1 rtl:mr-1 hover:text-[#202020] hover:underline font-medium' target='_blank'>itsR4wand</a></p>
+          <p className='flex items-center justify-center mt-10 min-w-full text-[#646464] text-sm'>{languageStrings[language].footer.copyright}<a href='http://x.com/itsr4wand' className='ltr:ml-1 rtl:mr-1 hover:text-[#202020] hover:underline font-medium' target='_blank'>itsR4wand</a></p>
         </footer>
       </div>
     </>
   )
 }
-
-
-
-export default Footer

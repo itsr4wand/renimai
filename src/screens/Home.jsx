@@ -3,6 +3,7 @@
 //* (c) 2024
 //
 
+// Importing necessary modules
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/MetaSEO.jsx'
@@ -14,12 +15,15 @@ import getRoadmapsData from '../roadmaps'
 import 'ldrs/squircle'
 import { LoremIpsum, Avatar, fullname, username } from 'react-lorem-ipsum'
 
-function Home() {
+// Defining the App component
+export default function Home() {
   const [roadmapData, setRoadmapsData] = useState([])
+  // Using cookies to get the language preference
   const [cookies] = useCookies(['language'])
   const defaultLanguage = cookies.language || 'en'
-  // set user language
+  // Setting the language to the user's preference
   const language = defaultLanguage
+  // Defining the language strings
   const languageStrings = { en, de, ckb } // language codes
 
   // read the roadmaps
@@ -32,12 +36,12 @@ function Home() {
   return (
     <>
       <SEO
-        title='Learning React Helmet!'
-        description='Beginner friendly page for learning React Helmet.' />
+        title={`Developer Roadmaps ${new Date().getFullYear()} - Renimai`}
+        description='Renimai is a website designed to teach beginners programming in the best way.' />
       <div className='pt-6 bg-gradient-to-b from-[#fcfcfc] to-white'>
         <div className='px-2 py-12 min-h-72 text-center flex flex-col items-center justify-center'>
-          <h1 className='text-4xl md:text-5xl font-extrabold text-balance' dangerouslySetInnerHTML={{ __html: languageStrings[language].home.hero.title }}></h1>
-          <p className='max-w-md mx-auto text-[#646464] mt-2 mb-4 text-balance'>{languageStrings[language].home.hero.description}</p>
+          <h1 className='text-4xl md:text-5xl font-extrabold' dangerouslySetInnerHTML={{ __html: languageStrings[language].home.hero.title }}></h1>
+          <p className='max-w-md mx-auto text-[#646464] mt-2 mb-4'>{languageStrings[language].home.hero.description}</p>
           <Link to='/roadmaps' className='hover:translate-y-[-1.5px] transition-transform bg-[#202020] hover:bg-[#171717] text-white px-5 py-2.5 gap-2 flex items-center justify-center rounded-md'>{languageStrings[language].home.hero.btn}
             {language === 'ckb' ? <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-5 h-5'><path strokeLinecap='round' strokeLinejoin='round' d='m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25' /></svg> :
               <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-5 h-5'><path strokeLinecap='round' strokeLinejoin='round' d='m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25' /></svg>}
@@ -108,8 +112,8 @@ function Home() {
       </div>
       <div className='bg-gradient-to-b from-[#fcfcfc] to-white py-20 border-t-[1px] border-[#d4d4d8]'>
         <div className='max-w-4xl mx-auto'>
-          <div className='flex flex-col items-center'>
-            <h2 className='mt-2 text-3xl md:text-4xl font-extrabold text-balance'>{languageStrings[language].home.subfooter.title}</h2>
+          <div className='flex flex-col items-center px-2'>
+            <h2 className='mt-2 text-3xl md:text-4xl font-extrabold text-center'>{languageStrings[language].home.subfooter.title}</h2>
             <p className='text-[#646464] mt-2 mb-4 text-center'>{languageStrings[language].home.subfooter.description}</p>
             <Link to='/roadmaps' className='hover:translate-y-[-1.5px] transition-transform bg-[#202020] hover:bg-[#171717] text-white px-5 py-2.5 gap-2 flex items-center justify-center rounded-md'>
               {languageStrings[language].home.subfooter.btn}
@@ -122,5 +126,3 @@ function Home() {
     </>
   )
 }
-
-export default Home

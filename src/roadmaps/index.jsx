@@ -2,8 +2,11 @@
 //! > By itsR4wand
 //* (c) 2024
 //
+//! Function to import JSON data for roadmaps based on the specified language
+//* @param {string} language - The language code
+//* @returns {Object} - Object containing roadmaps data for HTML5, CSS3, JavaScript, and Flutter
+//
 
-// import json data
 const importRoadmapsData = async (language) => {
   try {
     const roadmaps = await Promise.all([
@@ -25,15 +28,18 @@ const importRoadmapsData = async (language) => {
   }
 }
 
-// usag them
+//! Function to get roadmaps data for a specific language
+//* @param {string} language - The language code
+//* @returns {Object} - Roadmaps data for the specified language
+//
 const getRoadmapsData = async (language) => {
   try {
-    const roadmapData = await importRoadmapsData(language)
-    return roadmapData
+    const roadmapData = await importRoadmapsData(language);
+    return roadmapData;
   } catch (error) {
-    // if got any error
-    console.error('Error loading JSON data:', error)
-    return null
+    // Handle error if JSON data loading fails
+    console.error('Error loading JSON data:', error);
+    return null;
   }
 }
 

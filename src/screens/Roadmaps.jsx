@@ -3,8 +3,10 @@
 //* (c) 2024
 //
 
+// Importing necessary modules
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/MetaSEO.jsx'
 import { useCookies } from 'react-cookie'
 import en from '../language/en.json'
 import de from '../language/de.json'
@@ -12,12 +14,15 @@ import ckb from '../language/ckb.json'
 import getRoadmapsData from '../roadmaps'
 import 'ldrs/squircle'
 
-function Roadmaps() {
-  const [roadmapData, setRoadmapsData] = useState(null)
+// Defining the App component
+export default function Roadmaps() {
+  const [roadmapData, setRoadmapsData] = useState([])
+  // Using cookies to get the language preference
   const [cookies] = useCookies(['language'])
   const defaultLanguage = cookies.language || 'en'
-  // set user language
+  // Setting the language to the user's preference
   const language = defaultLanguage
+  // Defining the language strings
   const languageStrings = { en, de, ckb } // language codes
 
   // read the roadmaps
@@ -29,12 +34,15 @@ function Roadmaps() {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto px-3 lg:px-0">
-        <div className="flex flex-col pt-12">
+      <SEO
+        title={languageStrings[language].roadmaps.hero.title + ` ${new Date().getFullYear()} - Renimai`}
+        description={languageStrings[language].roadmaps.hero.text} />
+      <div className='max-w-4xl mx-auto px-3 lg:px-0'>
+        <div className='flex flex-col pt-12'>
           <h2 className='text-3xl md:text-4xl font-bold'>{languageStrings[language].roadmaps.hero.title}</h2>
           <p className='mt-1 text-[#646464]'>{languageStrings[language].roadmaps.hero.text}</p>
         </div>
-        <div className="my-12">
+        <div className='my-12'>
           {roadmapData ?
             <div className='mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3'>
               {Object.values(roadmapData)
@@ -60,13 +68,11 @@ function Roadmaps() {
                 color='black'
               ></l-squircle>
             </div>}
-          <div className="flex items-center min-w-full min-h-12 mt-3">
-            <Link to='/add-roadmap' className="text-[#20202] text-lg min-w-full font-semibold border-dashed border-2 border-[#d4d4d8] bg-[#f6f6f6] rounded-md p-3 hover:translate-y-[-3px] transition-transform">{languageStrings[language].roadmaps.addroadmap}</Link>
+          <div className='flex items-center min-w-full min-h-12 mt-3'>
+            <Link to='/add-roadmap' className='text-[#20202] text-lg min-w-full font-semibold border-dashed border-2 border-[#d4d4d8] bg-[#f6f6f6] rounded-md p-3 hover:translate-y-[-3px] transition-transform'>{languageStrings[language].roadmaps.addroadmap}</Link>
           </div>
         </div>
       </div>
     </>
   )
 }
-
-export default Roadmaps
